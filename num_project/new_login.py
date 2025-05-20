@@ -11,7 +11,7 @@ def login():
     window = tkinter.Tk()
     window.title('登录')
     window.resizable(False, False)
-    window.geometry('200x180+500+500')
+    window.geometry('200x240+500+500')
     window.iconbitmap(os.path.join(get_path(), 'logo.ico'))
     
     login_status = {'success': False, 'auto_login': 0}  # 用字典替代全局变量
@@ -81,12 +81,12 @@ def login():
             conn.close()
 
     tkinter.Button(text='提交', command=check_credentials).place(x=130, y=130, width=55, height=30)
+    tkinter.Button(text='取消', command=sys.exit).place(x=130, y=190, width=55, height=30)
     
     window.mainloop()
     return login_status['auto_login'] if login_status['success'] else None
 
-"""
+
 if __name__ == '__main__':
     result = login()
     print("登录状态:", "自动登录已启用" if result == 1 else ("自动登录未启用" if result == 0 else "登录取消"))
-"""
